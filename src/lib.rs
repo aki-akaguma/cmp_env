@@ -40,6 +40,17 @@ pub fn do_libc_getenv(keys: &[&str], pattern: &str) -> anyhow::Result<usize> {
     Ok(found)
 }
 
+pub fn do_envmnt_get(keys: &[&str], pattern: &str) -> anyhow::Result<usize> {
+    let mut found: usize = 0;
+    for key in keys {
+        let value = envmnt::get_or(key, "");
+        if value == pattern {
+            found += 1;
+        }
+    }
+    Ok(found)
+}
+
 pub fn do_env_cache(
     keys: &[&str],
     pattern: &str,

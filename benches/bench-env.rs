@@ -8,6 +8,10 @@ fn process_libc_getenv(texts: &[&str], pattern: &str) -> anyhow::Result<usize> {
     cmp_env::do_libc_getenv(texts, pattern)
 }
 
+fn process_envmnt_get(texts: &[&str], pattern: &str) -> anyhow::Result<usize> {
+    cmp_env::do_envmnt_get(texts, pattern)
+}
+
 fn process_env_cache(
     texts: &[&str],
     pattern: &str,
@@ -48,6 +52,18 @@ fn criterion_benchmark(c: &mut Criterion) {
             unreachable!();
         }
     }
+    match process_envmnt_get(
+        criterion::black_box(&vv),
+        criterion::black_box(pat_string_s),
+    ) {
+        Ok(n) => {
+            assert_eq!(n, match_cnt);
+        }
+        Err(err) => {
+            eprintln!("{}", err);
+            unreachable!();
+        }
+    }
     match process_env_cache(
         criterion::black_box(&vv),
         criterion::black_box(pat_string_s),
@@ -74,6 +90,14 @@ fn criterion_benchmark(c: &mut Criterion) {
     c.bench_function("cmp-libc_getenv", |b| {
         b.iter(|| {
             let _r = process_libc_getenv(
+                criterion::black_box(&vv),
+                criterion::black_box(pat_string_s),
+            );
+        })
+    });
+    c.bench_function("cmp-envmnt_get", |b| {
+        b.iter(|| {
+            let _r = process_envmnt_get(
                 criterion::black_box(&vv),
                 criterion::black_box(pat_string_s),
             );

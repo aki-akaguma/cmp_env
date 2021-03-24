@@ -47,7 +47,7 @@ fn output2(bench_vec_1: Vec<BenchStr>, bench_vec_2: Vec<BenchStr>) -> anyhow::Re
             );
         } else {
             println!(
-                "| {:<23} | {:>8.3} uc | {:>8.3} uc |",
+                "| {:<23} | {:>8.3} us | {:>8.3} us |",
                 bench1.name,
                 bench1.time / 0.000001,
                 bench2.time / 0.000001,

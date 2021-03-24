@@ -1,5 +1,5 @@
+TASKSET = taskset -c 2
 BENCH_STR = --bench=bench-env
-
 TARGET_MUSL = --target=x86_64-unknown-linux-musl
 
 all:
@@ -33,9 +33,9 @@ report:
 bench.1:
 	@rm -f z.bench.1.log
 	cargo bench --no-run
-	cargo bench $(BENCH_STR) -- -n | tee -a z.bench.1.log
+	$(TASKSET) cargo bench $(BENCH_STR) -- -n | tee -a z.bench.1.log
 
 bench.1-musl:
 	@rm -f z.musl.bench.1.log
 	cargo bench --no-run $(TARGET_MUSL)
-	cargo bench $(BENCH_STR) $(TARGET_MUSL) -- -n | tee -a z.musl.bench.1.log
+	$(TASKSET) cargo bench $(BENCH_STR) $(TARGET_MUSL) -- -n | tee -a z.musl.bench.1.log
