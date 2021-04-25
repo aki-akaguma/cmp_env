@@ -5,13 +5,13 @@ research: compare the accessing to environment variables
 
 |         `name`          |   `bench`   |   `musl`    |
 |:------------------------|------------:|------------:|
-| cmp-env_cache           |   18.306 us |   55.115 us |
-| cmp-libc_getenv         |  132.650 us |  623.880 us |
-| cmp-std_env_var         |  142.800 us |  589.970 us |
-| cmp-envmnt_get          |  171.770 us |  663.860 us |
+| cmp-env_cache           |   17.552 us |   53.633 us |
+| cmp-libc_getenv         |  130.600 us |  624.720 us |
+| cmp-envmnt_get          |  146.220 us |  662.910 us |
+| cmp-std_env_var         |  150.750 us |  590.460 us |
 
 - `us` is micro seconds, lower is better
-- rustc 1.50.0 (cb75ad5db 2021-02-10)
+- rustc 1.51.0 (2fd73fabe 2021-03-23)
 - bench on intel Q6600 @ 2.40GHz
 
 - [envmnt](https://crates.io/crates/envmnt) - is the many access-type to environment variables.
