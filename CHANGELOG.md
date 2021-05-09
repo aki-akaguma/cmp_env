@@ -2,6 +2,12 @@ TBD
 ===
 Unreleased changes. Release notes have not yet been written.
 
+0.1.3 (2021-05-09)
+=====
+
+* update depends: regex(1.5.4)
+* more short measuring and warming time
+
 0.1.2 (2021-04-25)
 =====
 
