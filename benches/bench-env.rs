@@ -23,6 +23,8 @@ fn process_env_cache(
 mod create_data;
 
 fn criterion_benchmark(c: &mut Criterion) {
+    memx_cdy::memx_init();
+    //
     let (v, match_cnt, pat_string_s) = create_data::setup_env();
     let vv: Vec<&str> = v.iter().map(|item| item.as_str()).collect();
     //
