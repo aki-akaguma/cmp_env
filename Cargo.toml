@@ -1,6 +1,6 @@
 [package]
 name = "cmp_env"
-version = "0.1.4"
+version = "0.1.5"
 authors = ["aki <aki.akaguma@hotmail.com>"]
 edition = "2018"
 description = "research: compare the accessing to environment variables"

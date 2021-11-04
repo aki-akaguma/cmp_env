@@ -3,6 +3,15 @@ research: compare the accessing to environment variables
 
 ## Slower libc::getenv()
 
+- rustc 1.56.1 (59eed8a2a 2021-11-01)
+
+|         `name`          |   `bench`   |   `musl`    |
+|:------------------------|------------:|------------:|
+| cmp-env_cache           |   18.507 us |   52.180 us |
+| cmp-libc_getenv         |  145.890 us |  596.490 us |
+| cmp-std_env_var         |  154.550 us |  591.970 us |
+| cmp-envmnt_get          |  165.920 us |  652.770 us |
+
 - rustc 1.53.0 (53cb7b09b 2021-06-17)
 
 |         `name`          |   `bench`   |   `musl`    |
