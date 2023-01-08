@@ -1,4 +1,8 @@
 # cmp_env
+
+![Rust Version][rustc-image]
+![Apache2/MIT licensed][license-image]
+
 research: compare the accessing to environment variables
 
 ## Slower libc::getenv()
@@ -33,3 +37,8 @@ It is based on `std::env::var()`, which has the same functionality
 as the `getenv()` functions in C language.
 
 ## What do you think? :octocat:
+
+[//]: # (badges)
+
+[rustc-image]: https://img.shields.io/badge/rustc-1.56+-blue.svg
+[license-image]: https://img.shields.io/badge/license-Apache2.0/MIT-blue.svg
